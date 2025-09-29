@@ -52,3 +52,60 @@ chmod +x install.sh
   "mem_mb_total": 16384  // 内存总量 (MB)
 }
 ```
+
+# JQS (Job Queue System) Installation Package
+
+This is a lightweight job scheduling system designed for individual use. This installation package aims to provide a simple and seamless "one-click" installation experience.
+
+## Core Features
+
+- **No Command Conflicts**: Uses `jqs` as the main command to avoid conflicts with the system's built-in `jobs` command.
+- **Root-Free Installation**: All files and configurations are installed under the user's home directory—no `sudo` privileges required.
+- **One-Click Script**: A single script handles the entire installation, configuration, and daemon startup process.
+- **Automatic Environment Detection**: Automatically detects your `PATH` environment variable and provides clear guidance for setup.
+
+## Installation Steps
+
+Open a terminal, navigate to the `installation_package` directory, and run the following two commands:
+
+```bash
+# 1. Grant execute permission to the installation script
+chmod +x install.sh
+
+# 2. Run the one-click installation script
+./install.sh
+```
+
+The script will automatically complete all setup steps. Once installation succeeds, you can use the `jqs` command from anywhere.
+
+## Usage
+
+- **View job queue**: `jqs q`
+- **Submit a job**: `jqs submit <your_script.sh>`
+- **Inspect a specific job**: `jqs info <job_id>`
+- **Cancel a job**: `jqs cancel <job_id>`
+- **Check node resources**: `jqs nodes`
+
+## Included Files
+
+- `install.sh` – **(new)** One-click installation script  
+- `jqs` – **(new)** Main executable (formerly named `jobs`)  
+- `setup.py` – System initialization script  
+- `project/` – Core Python modules  
+- `jqs-scheduler-daemon.sh` – Script to start the scheduler daemon  
+- `stop-jqs-scheduler.sh` – Script to stop the scheduler daemon  
+- `INSTALLATION_GUIDE_ZH.md` – Detailed Chinese technical and user guide  
+- `test_job.sh` – Example job script for testing  
+
+## System Configuration
+
+After installation, you can adjust available CPU cores and memory by editing the `~/jqs/limits.json` file according to your system resources:
+
+```json
+{
+  "cores_total": 8,      // Total number of CPU cores
+  "mem_mb_total": 16384  // Total memory in megabytes (MB)
+}
+```
+
+
