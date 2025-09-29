@@ -1,0 +1,11 @@
+# Python 缓存
+__pycache__/
+*.pyc
+
+# JQS 运行时生成的文件
+scheduler.log
+scheduler.pid
+
+# IDE/编辑器配置
+.vscode/
+.idea/
